@@ -1,0 +1,28 @@
+# This workflow will build a golang project
+# For more information see: https://github.com/extdomains/docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
+
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+      
+jobs:
+  create-release:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@v2
+      
+    - name: Setup
+      uses: actions/setup-go@v3
+    
+    - name: Build Cross
+      run: "./buildcross.bat"
+    
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
