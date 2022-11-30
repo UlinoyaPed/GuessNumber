@@ -1,5 +1,5 @@
 # This workflow will build a golang project
-# For more information see: https://github.com/extdomains/docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
+# For more information see: http://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
 name: Release
 
@@ -22,7 +22,14 @@ jobs:
     - name: Build Cross
       run: "./buildcross.bat"
     
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
+    - name: Create Release and Upload Release Asset
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        tag_name: ${{ github.ref }}
+        name: Release ${{ github.ref }}
+        body: TODO New Release.
+        draft: false
+        prerelease: false
+        files: |
+          ./releases/*
