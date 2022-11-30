@@ -2,6 +2,7 @@
 echo NOTE: see also:
 echo https://github.com/golang/go/wiki/WindowsCrossCompiling
 echo https://github.com/golang/go/wiki/InstallFromSource#install-c-tools
+
 "./go-winres.exe" make
 md releases
 
