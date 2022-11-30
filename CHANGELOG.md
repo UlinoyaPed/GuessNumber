@@ -1,4 +1,4 @@
-# GuessNumber-v1.1.2
+# GuessNumber-v1.2.2
 
 ## 这里记录着改动
 
