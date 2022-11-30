@@ -13,3 +13,12 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+#releases
+releases/*
+*.syso
+
+#build
+!go-winres.exe
+!buildcross.bat
+!winres/*
